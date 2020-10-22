@@ -70,8 +70,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             </div>
                             <div class="header__profile-name">
                                 <span>
-                                    <nav class="header_nav">
-                                    </nav>
                                     <?php print $user_name; ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
