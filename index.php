@@ -73,7 +73,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                                     <nav class="header_nav">
                                         <?php print $user_name; ?>
                                     </nav>
-                                    <?php endif; ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
@@ -119,6 +118,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </div>
     </div>
 </header>
+<?php endif; ?>
 
 <section class="page__main page__main--popular">
     <div class="container">
