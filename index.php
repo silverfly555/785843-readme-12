@@ -71,8 +71,8 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             <div class="header__profile-name">
                                 <span>
                                     <nav class="header_nav">
-                                        <?php print $user_name; ?>
                                     </nav>
+                                    <?php print $user_name; ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
