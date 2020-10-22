@@ -60,6 +60,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                         </a>
                     </li>
                 </ul>
+                <?php if ($is_auth): ?>
                 <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
                 <ul class="header__user-nav">
                     <li class="header__profile">
@@ -69,11 +70,10 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             </div>
                             <div class="header__profile-name">
                                 <span>
-                                        <?php if ($is_auth): ?>
-                                            <nav class="header_nav">
-                                                <?=$user_name; ?>
-                                            </nav>
-                                        <?php endif; ?>
+                                    <nav class="header_nav">
+                                        <?php print $user_name; ?>
+                                    </nav>
+                                    <?php endif; ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
