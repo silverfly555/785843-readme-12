@@ -115,10 +115,11 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     </li>
                 </ul>
             </nav>
+            <?php endif; ?>
         </div>
     </div>
 </header>
-<?php endif; ?>
+
 
 <section class="page__main page__main--popular">
     <div class="container">
