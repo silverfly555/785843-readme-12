@@ -41,11 +41,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </form>
         <div class="header__nav-wrapper">
             <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
-            <?php
-            if ($is_auth==1){
-                print($user_name);
-            }
-            ?>
+            
             <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
@@ -74,8 +70,10 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             <div class="header__profile-name">
                                 <span>
                                         <?php
+                                        if ($is_auth==1){
                                             print($user_name);
-                                            ?>
+                                        }
+                                        ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
