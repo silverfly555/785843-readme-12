@@ -200,9 +200,28 @@ $user_name = ''; // укажите здесь ваше имя
                 </ul>
             </div>
         </div>
+		<?php 
+			$info_post=[
+			'Заголовок'=>$head_post,
+			'Тип'=>$type_post,
+			'Содержимое'=>$content_post,
+			'Имя юзера'=>$name_user,
+			'Аватар'=>$avatar,
+					];
+			$head_post=['Цитата', 'Игра престолов', 'Наконец, обработал фотки!', 'Моя мечта', 'Лучшие курсы'];
+			$type_post=['post-quote', 'post-text', 'post-photo', 'post-photo', 'post-link'];
+			$content_post=['Мы в жизни любим только раз, а после ищем лишь похожих',
+            'Не могу дождаться начала финального сезона своего любимого сериала!',
+            'rock-medium.jpg',
+            'coast-medium.jpg',
+            'www.htmlacademy.ru'];
+			$name_user=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'];
+			$avatar_post=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg']; 
+		?>
         <div class="popular__posts">
             <div class="visually-hidden" id="donor">
                 <!--содержимое для поста-цитаты-->
+				
                 <blockquote>
                     <p>
                         <!--здесь текст-->
@@ -218,7 +237,7 @@ $user_name = ''; // укажите здесь ваше имя
                                 <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                             </div>
                             <div class="post-link__info">
-                                <h3><!--здесь заголовок--></h3>
+                                <h3><!--здесь заголовок--><?=$head_post;?></h3>
                             </div>
                         </div>
                         <span><!--здесь ссылка--></span>
@@ -250,10 +269,11 @@ $user_name = ''; // укажите здесь ваше имя
 
             <article class="popular__post post">
                 <header class="post__header">
-                    <h2><!--здесь заголовок--></h2>
+                    <h2><!--здесь заголовок--><?= $head_post; ?></h2>
                 </header>
                 <div class="post__main">
                     <!--здесь содержимое карточки-->
+					<?= $content_post; ?>
                 </div>
                 <footer class="post__footer">
                     <div class="post__author">
@@ -263,7 +283,7 @@ $user_name = ''; // укажите здесь ваше имя
                                 <img class="post__author-avatar" src="img/" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
-                                <b class="post__author-name"><!--здесь имя пользоателя--></b>
+                                <b class="post__author-name"><!--здесь имя пользоателя--><?= $user_name; ?></b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
                         </a>
