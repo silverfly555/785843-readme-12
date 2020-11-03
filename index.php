@@ -41,15 +41,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </form>
         <div class="header__nav-wrapper">
             <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
-<<<<<<< HEAD
-            <?php
-            if ($is_auth==1) {
-                print($user_name);
-            }
-            ?>
-=======
             <?php if ($is_auth): ?>
->>>>>>> b75ddbd0935c23b5ede01c951c96aaa3726d2164
             <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
@@ -78,7 +70,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             </div>
                             <div class="header__profile-name">
                                 <span>
-                                    <?php print $user_name; ?>
+                                    <?=$user_name; ?>
                                     <!--здесь должно быть имя пользователя-->
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
@@ -213,28 +205,24 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                 </ul>
             </div>
         </div>
-		<?php 
-			$info_post=[
-			'Заголовок'=>$head_post,
-			'Тип'=>$type_post,
-			'Содержимое'=>$content_post,
-			'Имя юзера'=>$name_user,
-			'Аватар'=>$avatar,
-					];
-			$head_post=['Цитата', 'Игра престолов', 'Наконец, обработал фотки!', 'Моя мечта', 'Лучшие курсы'];
-			$type_post=['post-quote', 'post-text', 'post-photo', 'post-photo', 'post-link'];
-			$content_post=['Мы в жизни любим только раз, а после ищем лишь похожих',
-            'Не могу дождаться начала финального сезона своего любимого сериала!',
-            'rock-medium.jpg',
-            'coast-medium.jpg',
-            'www.htmlacademy.ru'];
-			$name_user=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'];
-			$avatar_post=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg']; 
-		?>
+		<?php
+			$info_head=['Цитата', 'Игра престолов', 'Наконец, обработал фотки!', 'Моя мечта', 'Лучшие курсы'];
+            $info_post=['post-quote', 'post-text', 'post-photo', 'post-photo', 'post-link'];
+            $info_content=['Мы в жизни любим только раз, а после ищем лишь похожих',
+                    'Не могу дождаться начала финального сезона своего любимого сериала!',
+                    'rock-medium.jpg', 'coast-medium.jpg', 'www.htmlacademy.ru'];
+            $info_name=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'];
+            $info_jpg=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg'];
+			$ind=0;
+			foreach ($info_head as $ma) {
+                print($ma[$ind]);
+                $ind=$ind+1;
+            }
+           ?>
         <div class="popular__posts">
             <div class="visually-hidden" id="donor">
                 <!--содержимое для поста-цитаты-->
-				
+
                 <blockquote>
                     <p>
                         <!--здесь текст-->
@@ -250,7 +238,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                                 <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                             </div>
                             <div class="post-link__info">
-                                <h3><!--здесь заголовок--><?=$head_post;?></h3>
+                                <h3><!--здесь заголовок--><?=$head_post_buf=$head_post;?></h3>
                             </div>
                         </div>
                         <span><!--здесь ссылка--></span>
