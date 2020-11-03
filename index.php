@@ -206,30 +206,35 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             </div>
         </div>
 		<?php
-			$info_head=['Цитата', 'Игра престолов', 'Наконец, обработал фотки!', 'Моя мечта', 'Лучшие курсы'];
-            $info_post=['post-quote', 'post-text', 'post-photo', 'post-photo', 'post-link'];
+        $info_card=[
+			$info_head=['Цитата', 'Игра престолов', 'Наконец, обработал фотки!', 'Моя мечта', 'Лучшие курсы'],
+            $info_post=['post-quote', 'post-text', 'post-photo', 'post-photo', 'post-link'],
             $info_content=['Мы в жизни любим только раз, а после ищем лишь похожих',
                     'Не могу дождаться начала финального сезона своего любимого сериала!',
-                    'rock-medium.jpg', 'coast-medium.jpg', 'www.htmlacademy.ru'];
-            $info_name=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'];
-            $info_jpg=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg'];
+                    'rock-medium.jpg', 'coast-medium.jpg', 'www.htmlacademy.ru'],
+            $info_name=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'],
+            $info_jpg=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg']
+            ];
+			$ind1=0;
 			$ind=0;
-			foreach ($info_head as $ma) {
-                print($ma[$ind]);
-                $ind=$ind+1;
+			foreach ($info_card as $x1) {
+                print($info_content[$ind1]);
+                $ind1=$ind1+1;
             }
            ?>
+        <?php foreach ($info_card as $x1): ?>
         <div class="popular__posts">
             <div class="visually-hidden" id="donor">
                 <!--содержимое для поста-цитаты-->
-
+                <?php
+                print($info_content[$ind]);
+                ?>
                 <blockquote>
                     <p>
                         <!--здесь текст-->
                     </p>
                     <cite>Неизвестный Автор</cite>
                 </blockquote>
-
                 <!--содержимое для поста-ссылки-->
                 <div class="post-link__wrapper">
                     <a class="post-link__external" href="http://" title="Перейти по ссылке">
@@ -238,18 +243,20 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                                 <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                             </div>
                             <div class="post-link__info">
-                                <h3><!--здесь заголовок--><?=$head_post_buf=$head_post;?></h3>
+                                <h3><!--здесь заголовок-->
+                                    <?php
+                                    print($head_jpg[$ind]);
+                                    ?>
+                                </h3>
                             </div>
                         </div>
                         <span><!--здесь ссылка--></span>
                     </a>
                 </div>
-
                 <!--содержимое для поста-фото-->
                 <div class="post-photo__image-wrapper">
                     <img src="img/" alt="Фото от пользователя" width="360" height="240">
                 </div>
-
                 <!--содержимое для поста-видео-->
                 <div class="post-video__block">
                     <div class="post-video__preview">
@@ -263,18 +270,23 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                         <span class="visually-hidden">Запустить проигрыватель</span>
                     </a>
                 </div>
-
                 <!--содержимое для поста-текста-->
                 <p><!--здесь текст--></p>
             </div>
 
             <article class="popular__post post">
                 <header class="post__header">
-                    <h2><!--здесь заголовок--><?= $head_post; ?></h2>
+                    <h2><!--здесь заголовок-->
+                   <?php
+                   print($head_post[$ind]);
+                   ?>
+                    </h2>
                 </header>
                 <div class="post__main">
                     <!--здесь содержимое карточки-->
-					<?= $content_post; ?>
+					<?php
+                    print($content_post[$ind]);
+                    ?>
                 </div>
                 <footer class="post__footer">
                     <div class="post__author">
@@ -284,7 +296,11 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                                 <img class="post__author-avatar" src="img/" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
-                                <b class="post__author-name"><!--здесь имя пользоателя--><?= $user_name; ?></b>
+                                <b class="post__author-name"><!--здесь имя пользоателя-->
+                                    <?php
+                                    print($info_name[$ind]);
+                                    ?>
+                                </b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
                         </a>
@@ -314,6 +330,10 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             </article>
         </div>
     </div>
+    <?php
+    $ind=$ind+1;
+    endforeach;
+    ?>
 </section>
 
 <footer class="footer">
