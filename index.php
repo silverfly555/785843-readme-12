@@ -1,6 +1,5 @@
 <?php
 $is_auth = rand(0, 1);
-
 $user_name = 'Владимир'; // укажите здесь ваше имя
 ?>
 <!DOCTYPE html>
@@ -70,8 +69,8 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             </div>
                             <div class="header__profile-name">
                                 <span>
-                                    <?=$user_name; ?>
                                     <!--здесь должно быть имя пользователя-->
+                                    <?=$user_name; ?>
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
                                     <use xlink:href="#icon-arrow-right-ad"></use>
@@ -219,7 +218,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
 			$ind=0;
 			foreach ($info_card as $x1) {
                 print($info_content[$ind1]);
-                $ind1=$ind1+1;
+                $ind1++;
             }
            ?>
         <?php foreach ($info_card as $x1): ?>
@@ -331,7 +330,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </div>
     </div>
     <?php
-    $ind=$ind+1;
+    $ind++;
     endforeach;
     ?>
 </section>
