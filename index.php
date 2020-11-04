@@ -212,7 +212,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     'Не могу дождаться начала финального сезона своего любимого сериала!',
                     'rock-medium.jpg', 'coast-medium.jpg', 'www.htmlacademy.ru'],
             $info_name=['Лариса', 'Владик', 'Виктор', 'Лариса', 'Владик'],
-            $info_jpg=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg']
+            $info_avatar=['userpic-larisa-small.jpg', 'userpic.jpg', 'userpic-mark.jpg', 'userpic-larisa-small.jpg', 'userpic.jpg']
             ];
 			$ind1=0;
 			$ind=0;
@@ -244,7 +244,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             <div class="post-link__info">
                                 <h3><!--здесь заголовок-->
                                     <?php
-                                    print($head_jpg[$ind]);
+                                    print($head_avatar[$ind]);
                                     ?>
                                 </h3>
                             </div>
@@ -284,7 +284,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                 <div class="post__main">
                     <!--здесь содержимое карточки-->
 					<?php
-                    print($content_post[$ind]);
+                    print($info_content[$ind]);
                     ?>
                 </div>
                 <footer class="post__footer">
