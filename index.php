@@ -254,13 +254,13 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <cite>Неизвестный Автор</cite>
                 </blockquote>
                 содержимое для поста-ссылки
-                <div class="post-link__wrapper">
+                <div class="post-link__wrapper"> !!!!!!!!!!!!!!!!!!!!!!
                     <a class="post-link__external" href="http://" title="Перейти по ссылке">
                         <div class="post-link__info-wrapper">
                             <div class="post-link__icon-wrapper">
                                 <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
                             </div>
-                            <div class="post-link__info">
+                            <div class="post-link__info">!!!!!!!!!!!!!!!!!!!!!
                                 <h3> здесь заголовок
                                 </h3>
                             </div>
@@ -269,11 +269,11 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     </a>
                 </div>
                  содержимое для поста-фото
-                <div class="post-photo__image-wrapper">
+                <div class="post-photo__image-wrapper">!!!!!!!!!!!!!!!!!!!
                     <img src="img/" alt="Фото от пользователя" width="360" height="240">
                 </div>
                  содержимое для поста-видео
-                <div class="post-video__block">
+                <div class="post-video__block">!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     <div class="post-video__preview">
                         embed_youtube_cover(/* вставьте ссылку на видео */)
                         <img src="img/coast-medium.jpg" alt="Превью к видео" width="360" height="188">
@@ -296,7 +296,25 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                         <?php echo $post['title']; ?>
                     </h2>
                 </header>
-                <div class="post__main">
+                <!--
+                'type' => 'post-link'
+                'type' => 'post-photo'
+                'type' => 'post-text'
+                'type' => 'post-quote'
+                -->
+                <?php
+                if ($post['type']='post-link') {
+                $post_main_class="post-link__info";
+                } else if ($post['type']='post-photo') {
+                $post_main_class="post-photo__image-wrapper";
+                } else if ($post['type']='post-text') {
+                $post_main_class="post-link__info";
+                } else if ($post['type']='post-quote') {
+                $post_main_class="post-quote";
+                };
+                ?>
+                <div class="post__main <?php $post_main_class ?>">
+                    <?php echo $post['type']; ?>
                     <!--здесь содержимое карточки-->
                     <?php echo $post['content']; ?>
                 </div>
