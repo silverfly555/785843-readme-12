@@ -266,18 +266,34 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <!--здесь содержимое карточки-->
                     <?php if ($post['type']=='post-link'): ?>
                     <div class="post-link__wrapper">
-                        <a  href="http://<?php echo $post['content']; ?>" title="<?php echo $post['content']; ?>">
+                        <a class="post-link__external" href="http://<?php echo $post['content']; ?>" title="Перейти по ссылке">
+                            <div class="post-link__info-wrapper">
+                                <div class="post-link__icon-wrapper">
+                                    <img src="https://www.google.com/s2/favicons?domain=vitadental.ru" alt="Иконка">
+                                </div>
+                                <div class="post-link__info">
+                                    <h3> <?php echo $post['title']; ?>
+                                    </h3>
+                                </div>
+                            </div>
+                            <span> <?php echo $post['content']; ?> </span>
+                        </a>
                     <?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
                     <?php elseif ($post['type']=='post-text'): ?>
-                        <header class="post__header">
-                            <h2><a href="#"><?php echo $post['content']; ?></a></h2>
-                        </header>
+                        <blockquote>
+                            <p>
+                                <?php echo $post['content']; ?>
+                            </p>
+                            <cite>Неизвестный Автор</cite>
+                        </blockquote>
                     <?php elseif ($post['type']=='post-quote'): ?>
-                        <header class="post__header">
-                            <h2><a href="#"><?php echo $post['content']; ?></a></h2>
-                        </header>
-
+                        <blockquote>
+                            <p>
+                                <?php echo $post['content']; ?>
+                            </p>
+                            <cite>Неизвестный Автор</cite>
+                        </blockquote>
                     <?php endif ?>
                 </div>
                 <footer class="post__footer">
