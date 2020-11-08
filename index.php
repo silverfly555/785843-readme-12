@@ -252,28 +252,40 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     </h2>
                 </header>
                 <?php
-                if ($post['type']='post-link') {
+                if ($post['type']=='post-link') {
+                $post_main_class='post-link__wrapper';
+                } elseif ($post['type']=='post-photo') {
+                $post_main_class='post-photo__image-wrapper';
+                } elseif ($post['type']=='post-text') {
                 $post_main_class="post-link__info";
-                } else if ($post['type']='post-photo') {
-                $post_main_class="post-photo__image-wrapper";
-                } else if ($post['type']='post-text') {
-                $post_main_class="post-link__info";
-                } else if ($post['type']='post-quote') {
+                } elseif ($post['type']=='post-quote') {
                 $post_main_class="post-quote";
                 };
                 ?>
                 <div class="post__main <?php echo $post_main_class ?>">
-                    <?php echo $post['type']; ?>
                     <!--здесь содержимое карточки-->
-                    <?php echo $post['content']; ?>
+                    <?php if ($post['type']=='post-link'): ?>
+                    <div class="post-link__wrapper">
+                        <a  href="http://<?php echo $post['content']; ?>" title="<?php echo $post['content']; ?>">
+                    <?php elseif ($post['type']=='post-photo'): ?>
+                    <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
+                    <?php elseif ($post['type']=='post-text'): ?>
+                        <header class="post__header">
+                            <h2><a href="#"><?php echo $post['content']; ?></a></h2>
+                        </header>
+                    <?php elseif ($post['type']=='post-quote'): ?>
+                        <header class="post__header">
+                            <h2><a href="#"><?php echo $post['content']; ?></a></h2>
+                        </header>
+
+                    <?php endif ?>
                 </div>
                 <footer class="post__footer">
                     <div class="post__author">
                         <a class="post__author-link" href="#" title="Автор">
                             <div class="post__avatar-wrapper">
                                 <!--укажите путь к файлу аватара-->
-                                <?php echo $post['avatar']; ?>
-                                <img class="post__author-avatar" src="img/" alt="Аватар пользователя">
+                                <img class="post__author-avatar" src="img/<?php echo $post['avatar']; ?>" alt="Аватар пользователя">
                             </div>
                             <div class="post__info">
                                 <b class="post__author-name"><!--здесь имя пользоателя-->
