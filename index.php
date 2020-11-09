@@ -281,12 +281,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
                     <?php elseif ($post['type']=='post-text'): ?>
-                        <blockquote>
-                            <p>
-                                <?php echo $post['content']; ?>
-                            </p>
-                            <cite>Неизвестный Автор</cite>
-                        </blockquote>
+                        <?php echo $post['content']; ?>
                     <?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
