@@ -254,13 +254,13 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             $ind = 0;
             if ($count_word > 300) {
             $word = explode(" ", $contents);
-            $glue=[];
-            $texts:string;
             while (strlen($texts)<300) {
-                $texts=imlode(" ", $word[$ind]);
+                $texts[$ind]=$word[$ind];
                 $ind++;
                                     }
                 echo $texts."...";
+                echo "<br>";
+                echo "<a class=\"post-text__more-link\" href=\"#\">Читать далее</a>";
                                     }
             else {
                 echo $contents;
