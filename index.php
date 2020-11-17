@@ -209,7 +209,13 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             [
                 'title' => 'Цитата',
                 'type' => 'post-quote',
-                'content' => 'Мы в жизни любим только раз, а после ищем лишь похожих',
+                'content' => 'Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих',
                 'user' => 'Лариса',
                 'avatar' => 'userpic-larisa-small.jpg',
             ],
@@ -243,6 +249,24 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             ],
         ];
            ?>
+        <?php function text ($contents) {
+            $count_word=strlen($contents);
+            $ind = 0;
+            if ($count_word > 300) {
+            $word = explode(" ", $contents);
+            $glue=[];
+            $texts:string;
+            while (strlen($texts)<300) {
+                $texts=imlode(" ", $word[$ind]);
+                $ind++;
+                                    }
+                echo $texts."...";
+                                    }
+            else {
+                echo $contents;
+                }
+                                        }
+        ?>
         <div class="popular__posts">
             <?php foreach ($posts as $post): ?>
             <article class="popular__post post">
@@ -285,6 +309,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
+                                <?php text($post['content']); ?>
                                 <?php echo $post['content']; ?>
                             </p>
                             <cite>Неизвестный Автор</cite>
