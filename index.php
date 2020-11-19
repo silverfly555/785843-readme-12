@@ -1,6 +1,29 @@
 <?php
 $is_auth = rand(0, 1);
 $user_name = 'Владимир'; // укажите здесь ваше имя
+function text ($contents, $quantity=300){
+    $currentLength = strlen($contents);
+    $result = [];
+    if ($quantity >= $currentLength + strlen($word) + 1) {
+        $word = explode(" ", $contents);
+        foreach ($word as $key) {
+            if (strlen($result . ' ' . $word) <= $quantity) {
+                $result = $result . ' ' . $word;
+                break;
+                                                           }
+            else {
+                return $result . "...";
+                return "<a class=\"post-text__more-link\" href=\"#\">Читать далее</a>";
+                break;
+                 }
+                              }
+    else {
+    return $contents;
+         }
+                                 }
+                                        }
+//(strlen($result . ' ' . $word) <= 300)
+//(300 >= $currentLength + strlen($word) + 1)
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -116,8 +139,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </div>
     </div>
 </header>
-
-
 <section class="page__main page__main--popular">
     <div class="container">
         <h1 class="page__title page__title--popular">Популярное</h1>
@@ -249,24 +270,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             ],
         ];
            ?>
-        <?php function text ($contents) {
-            $count_word=strlen($contents);
-            $ind = 0;
-            if ($count_word > 300) {
-            $word = explode(" ", $contents);
-            while (strlen($texts)<300) {
-                $texts[$ind]=$word[$ind];
-                $ind++;
-                                    }
-                echo $texts."...";
-                echo "<br>";
-                echo "<a class=\"post-text__more-link\" href=\"#\">Читать далее</a>";
-                                    }
-            else {
-                echo $contents;
-                }
-                                        }
-        ?>
         <div class="popular__posts">
             <?php foreach ($posts as $post): ?>
             <article class="popular__post post">
@@ -305,12 +308,11 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
                     <?php elseif ($post['type']=='post-text'): ?>
-                        <?php echo $post['content']; ?>
+                        <?php text($post['content'], 300); ?>
                     <?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
-                                <?php text($post['content']); ?>
-                                <?php echo $post['content']; ?>
+                                <?php text($post['content'], 300); ?>
                             </p>
                             <cite>Неизвестный Автор</cite>
                         </blockquote>
