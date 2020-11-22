@@ -5,22 +5,17 @@ function text ($contents, $quantity=300){
     $currentLength = strlen($contents);
     if ($currentLength > $quantity) {
         $word = explode(" ", $contents);
-        $result='';
         foreach ($word as $key) {
-            if (strlen($result . ' ') <= $quantity) {
-                $result = imlode(" ", $word);
+            if (strlen($result . ' '. $word) <= $quantity) {
+                $result=$result.imlode(" ", $word[$key]);
             } else {
-                return $result;
-                echo '...' . '<a class="post-text__more-link" href = "#" > Читать далее </a >';
-                break;
+                return $result.'...' . '<a class="post-text__more-link" href = "#" > Читать далее </a >';
             }
         }
     } else {
         return $contents;
     }
 }
-//(strlen($result . ' ' . $word) <= 300)
-//(300 >= $currentLength + strlen($word) + 1)
 ?>
 <!DOCTYPE html>
 <html lang="ru">
