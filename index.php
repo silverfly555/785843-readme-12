@@ -3,25 +3,22 @@ $is_auth = rand(0, 1);
 $user_name = 'Владимир'; // укажите здесь ваше имя
 function text ($contents, $quantity=300){
     $currentLength = strlen($contents);
-    $result = [];
-    if ($quantity >= $currentLength + strlen($word) + 1) {
+    if ($currentLength > $quantity) {
         $word = explode(" ", $contents);
+        $result='';
         foreach ($word as $key) {
-            if (strlen($result . ' ' . $word) <= $quantity) {
-                $result = $result . ' ' . $word;
+            if (strlen($result . ' ') <= $quantity) {
+                $result = imlode(" ", $word);
+            } else {
+                return $result;
+                echo '...' . '<a class="post-text__more-link" href = "#" > Читать далее </a >';
                 break;
-                                                           }
-            else {
-                return $result . "...";
-                return "<a class=\"post-text__more-link\" href=\"#\">Читать далее</a>";
-                break;
-                 }
-                              }
-    else {
-    return $contents;
-         }
-                                 }
-                                        }
+            }
+        }
+    } else {
+        return $contents;
+    }
+}
 //(strlen($result . ' ' . $word) <= 300)
 //(300 >= $currentLength + strlen($word) + 1)
 ?>
