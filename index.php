@@ -1,19 +1,21 @@
 <?php
-$is_auth = rand(0, 1);
-$user_name = 'Владимир'; // укажите здесь ваше имя
-function text ($contents, $quantity=300){
-    $currentLength = strlen($contents);
+$is_auth=rand(0, 1);
+$user_name='Владимир'; // укажите здесь ваше имя
+function text ($contents, $quantity=300)
+{
+    $currentLength=strlen($contents);
     if ($currentLength > $quantity) {
-        $word = explode(" ", $contents);
-        foreach ($word as $key) {
-            if (strlen($result . ' '. $word) <= $quantity) {
-                $result=$result.imlode(" ", $word[$key]);
+    $words=explode(" ", $contents);
+    $result='';
+        foreach ($words as $word) {
+            if (strlen($result.' '.$words)<=$quantity) {
+            $result=$result.$word.' ';
             } else {
-                return $result.'...' . '<a class="post-text__more-link" href = "#" > Читать далее </a >';
+            return $result.'...'.'<a class="post-text__more-link" href = "#" style="color: #ffffff"> Читать далее </a >';
             }
         }
     } else {
-        return $contents;
+    return $contents;
     }
 }
 ?>
@@ -74,7 +76,6 @@ function text ($contents, $quantity=300){
                         </a>
                     </li>
                 </ul>
-
                 <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
                 <ul class="header__user-nav">
                     <li class="header__profile">
@@ -85,7 +86,7 @@ function text ($contents, $quantity=300){
                             <div class="header__profile-name">
                                 <span>
                                     <!--здесь должно быть имя пользователя-->
-                                    <?=$user_name; ?>
+                                    <? echo $user_name; ?>
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
                                     <use xlink:href="#icon-arrow-right-ad"></use>
@@ -261,7 +262,7 @@ function text ($contents, $quantity=300){
                 'avatar' => 'userpic.jpg',
             ],
         ];
-           ?>
+        ?>
         <div class="popular__posts">
             <?php foreach ($posts as $post): ?>
             <article class="popular__post post">
@@ -300,11 +301,11 @@ function text ($contents, $quantity=300){
                     <?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
                     <?php elseif ($post['type']=='post-text'): ?>
-                        <?php text($post['content'], 300); ?>
+                        <?php echo text($post['content'], 300); ?>
                     <?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
-                                <?php text($post['content'], 300); ?>
+                                <?php echo text($post['content'], 300); ?>
                             </p>
                             <cite>Неизвестный Автор</cite>
                         </blockquote>
