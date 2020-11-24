@@ -5,13 +5,13 @@ function text ($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
     if ($currentLength > $quantity) {
-    $words=explode(" ", $contents);
+    $word=explode(" ", $contents);
     $result='';
-        foreach ($words as $word) {
-            if (strlen($result.' '.$words)<=$quantity) {
-            $result=$result.$word.' ';
+        foreach ($word as $words) {
+            if (strlen($result.' '.$word)<=$quantity) {
+            $result=$result.$words.' ';
             } else {
-            return $result.'...'.'<a class="post-text__more-link" href = "#" style="color: #ffffff"> Читать далее </a >';
+            return $result.'...'.'<a class="post-text__more-link" href="#" style="color: #ffffff">Читать далее</a>';
             }
         }
     } else {
@@ -86,7 +86,7 @@ function text ($contents, $quantity=300)
                             <div class="header__profile-name">
                                 <span>
                                     <!--здесь должно быть имя пользователя-->
-                                    <? echo $user_name; ?>
+                                    <?php echo $user_name; ?>
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
                                     <use xlink:href="#icon-arrow-right-ad"></use>
