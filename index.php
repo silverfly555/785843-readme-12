@@ -5,11 +5,11 @@ function text ($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
     if ($currentLength > $quantity) {
-    $word=explode(" ", $contents);
+    $words=explode(" ", $contents);
     $result='';
-        foreach ($word as $words) {
+        foreach ($words as $word) {
             if (strlen($result.' '.$word)<=$quantity) {
-            $result=$result.$words.' ';
+            $result=$result.$word.' ';
             } else {
             return $result.'...'.'<a class="post-text__more-link" href="#" style="color: #ffffff">Читать далее</a>';
             }
