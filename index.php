@@ -1,6 +1,23 @@
 <?php
-$is_auth = rand(0, 1);
-$user_name = 'Владимир'; // укажите здесь ваше имя
+$is_auth=rand(0, 1);
+$user_name='Владимир'; // укажите здесь ваше имя
+function text ($contents, $quantity=300)
+{
+    $currentLength=strlen($contents);
+    if ($currentLength > $quantity) {
+    $words=explode(" ", $contents);
+    $result='';
+        foreach ($words as $word) {
+            if (strlen($result.' '.$word)<=$quantity) {
+            $result=$result.$word.' ';
+            } else {
+            return $result.'...'.'<a class="post-text__more-link" href="#" style="color: #ffffff">Читать далее</a>';
+            }
+        }
+    } else {
+    return $contents;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -59,7 +76,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                         </a>
                     </li>
                 </ul>
-
                 <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
                 <ul class="header__user-nav">
                     <li class="header__profile">
@@ -70,7 +86,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                             <div class="header__profile-name">
                                 <span>
                                     <!--здесь должно быть имя пользователя-->
-                                    <?=$user_name; ?>
+                                    <?php echo $user_name; ?>
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
                                     <use xlink:href="#icon-arrow-right-ad"></use>
@@ -116,8 +132,6 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
         </div>
     </div>
 </header>
-
-
 <section class="page__main page__main--popular">
     <div class="container">
         <h1 class="page__title page__title--popular">Популярное</h1>
@@ -209,7 +223,13 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
             [
                 'title' => 'Цитата',
                 'type' => 'post-quote',
-                'content' => 'Мы в жизни любим только раз, а после ищем лишь похожих',
+                'content' => 'Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих
+                              Мы в жизни любим только раз, а после ищем лишь похожих',
                 'user' => 'Лариса',
                 'avatar' => 'userpic-larisa-small.jpg',
             ],
@@ -242,7 +262,7 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                 'avatar' => 'userpic.jpg',
             ],
         ];
-           ?>
+        ?>
         <div class="popular__posts">
             <?php foreach ($posts as $post): ?>
             <article class="popular__post post">
@@ -281,11 +301,11 @@ $user_name = 'Владимир'; // укажите здесь ваше имя
                     <?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
                     <?php elseif ($post['type']=='post-text'): ?>
-                        <?php echo $post['content']; ?>
+                        <?php echo text($post['content'], 300); ?>
                     <?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
-                                <?php echo $post['content']; ?>
+                                <?php echo text($post['content'], 300); ?>
                             </p>
                             <cite>Неизвестный Автор</cite>
                         </blockquote>
