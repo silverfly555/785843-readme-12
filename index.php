@@ -218,73 +218,73 @@ function text ($contents, $quantity=300)
                 </ul>
             </div>
         </div>
-		<?php
-        $posts = [
-            [
-                'title' => 'Цитата',
-                'type' => 'post-quote',
-                'content' => 'Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих
-                              Мы в жизни любим только раз, а после ищем лишь похожих',
-                'user' => 'Лариса',
-                'avatar' => 'userpic-larisa-small.jpg',
-            ],
-            [
-                'title' => 'Игра престолов',
-                'type' => 'post-text',
-                'content' => 'Не могу дождаться начала финального сезона своего любимого сериала!',
-                'user' => 'Владик',
-                'avatar' => 'userpic.jpg',
-            ],
-            [
-                'title' => 'Наконец, обработал фотки!',
-                'type' => 'post-photo',
-                'content' => 'rock-medium.jpg',
-                'user' => 'Виктор',
-                'avatar' => 'userpic-mark.jpg',
-            ],
-            [
-                'title' => 'Моя мечта',
-                'type' => 'post-photo',
-                'content' => 'coast-medium.jpg',
-                'user' => 'Лариса',
-                'avatar' => 'userpic-larisa-small.jpg',
-            ],
-            [
-                'title' => 'Лучшие курсы',
-                'type' => 'post-link',
-                'content' => 'www.htmlacademy.ru',
-                'user' => 'Владик',
-                'avatar' => 'userpic.jpg',
-            ],
-        ];
-        ?>
+<?php
+$posts=[
+[
+'title'=>'Цитата',
+'type'=>'post-quote',
+'content'=>'Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих
+      Мы в жизни любим только раз, а после ищем лишь похожих',
+'user'=>'Лариса',
+'avatar'=>'userpic-larisa-small.jpg',
+],
+[
+'title'=>'Игра престолов',
+'type'=>'post-text',
+'content'=>'Не могу дождаться начала финального сезона своего любимого сериала!',
+'user'=>'Владик',
+'avatar'=>'userpic.jpg',
+],
+[
+'title'=>'Наконец, обработал фотки!',
+'type'=>'post-photo',
+'content'=>'rock-medium.jpg',
+'user'=>'Виктор',
+'avatar'=>'userpic-mark.jpg',
+],
+[
+'title'=>'Моя мечта',
+'type'=>'post-photo',
+'content'=>'coast-medium.jpg',
+'user'=>'Лариса',
+'avatar'=>'userpic-larisa-small.jpg',
+],
+[
+'title'=>'Лучшие курсы',
+'type'=>'post-link',
+'content'=>'www.htmlacademy.ru',
+'user'=>'Владик',
+'avatar'=>'userpic.jpg',
+],
+];
+?>
         <div class="popular__posts">
-            <?php foreach ($posts as $post): ?>
+<?php foreach ($posts as $post): ?>
             <article class="popular__post post">
                 <header class="post__header">
                     <h2><!--здесь заголовок-->
-                        <?php echo $post['title']; ?>
+<?php echo $post['title']; ?>
                     </h2>
                 </header>
-                <?php
-                if ($post['type']=='post-link') {
-                $post_main_class='post-link__wrapper';
-                } elseif ($post['type']=='post-photo') {
-                $post_main_class='post-photo__image-wrapper';
-                } elseif ($post['type']=='post-text') {
-                $post_main_class="post-link__info";
-                } elseif ($post['type']=='post-quote') {
-                $post_main_class="post-quote";
-                };
-                ?>
+<?php
+if ($post['type']=='post-link') {
+$post_main_class='post-link__wrapper';
+} elseif ($post['type']=='post-photo') {
+$post_main_class='post-photo__image-wrapper';
+} elseif ($post['type']=='post-text') {
+$post_main_class="post-link__info";
+} elseif ($post['type']=='post-quote') {
+$post_main_class="post-quote";
+};
+?>
                 <div class="post__main <?php echo $post_main_class ?>">
                     <!--здесь содержимое карточки-->
-                    <?php if ($post['type']=='post-link'): ?>
+<?php if ($post['type']=='post-link'): ?>
                     <div class="post-link__wrapper">
                         <a class="post-link__external" href="http://<?php echo $post['content']; ?>" title="Перейти по ссылке">
                             <div class="post-link__info-wrapper">
@@ -298,18 +298,18 @@ function text ($contents, $quantity=300)
                             </div>
                             <span> <?php echo $post['content']; ?> </span>
                         </a>
-                    <?php elseif ($post['type']=='post-photo'): ?>
+<?php elseif ($post['type']=='post-photo'): ?>
                     <img src="img/<?php echo $post['content']; ?>" alt="Фото от пользователя" width="360" height="240">
-                    <?php elseif ($post['type']=='post-text'): ?>
-                        <?php echo text($post['content'], 300); ?>
-                    <?php elseif ($post['type']=='post-quote'): ?>
+<?php elseif ($post['type']=='post-text'): ?>
+<?php echo text($post['content'], 300); ?>
+<?php elseif ($post['type']=='post-quote'): ?>
                         <blockquote>
                             <p>
-                                <?php echo text($post['content'], 300); ?>
+<?php echo text($post['content'], 300); ?>
                             </p>
                             <cite>Неизвестный Автор</cite>
                         </blockquote>
-                    <?php endif ?>
+<?php endif ?>
                 </div>
                 <footer class="post__footer">
                     <div class="post__author">
@@ -320,7 +320,7 @@ function text ($contents, $quantity=300)
                             </div>
                             <div class="post__info">
                                 <b class="post__author-name"><!--здесь имя пользоателя-->
-                                    <?php echo $post['user']; ?>
+<?php echo $post['user']; ?>
                                 </b>
                                 <time class="post__time" datetime="">дата</time>
                             </div>
@@ -349,11 +349,10 @@ function text ($contents, $quantity=300)
                     </div>
                 </footer>
             </article>
-            <?php endforeach; ?>
+<?php endforeach; ?>
         </div>
     </div>
 </section>
-
 <footer class="footer">
     <div class="footer__wrapper">
         <div class="footer__container container">
