@@ -1,6 +1,6 @@
 <?php
-$is_auth=rand(0, 1);
-$user_name='Владимир'; // укажите здесь ваше имя
+$is_auth=rand(0,1);
+$user_name='Владимир';
 function text ($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
@@ -18,17 +18,11 @@ function text ($contents, $quantity=300)
     return $contents;
     }
 }
-$posts=[
+$posts = [
 [
 'title'=>'Цитата',
 'type'=>'post-quote',
-'content'=>'Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих
-      Мы в жизни любим только раз, а после ищем лишь похожих',
+'content'=>'Мы в жизни любим только раз, а после ищем лишь похожих',
 'user'=>'Лариса',
 'avatar'=>'userpic-larisa-small.jpg',
 ],
@@ -61,13 +55,4 @@ $posts=[
 'avatar'=>'userpic.jpg',
 ],
 ];
-if ($post['type']=='post-link') {
-    $post_main_class='post-link__wrapper';
-    } elseif ($post['type']=='post-photo') {
-    $post_main_class='post-photo__image-wrapper';
-    } elseif ($post['type']=='post-text') {
-    $post_main_class="post-link__info";
-    } elseif ($post['type']=='post-quote') {
-    $post_main_class="post-quote";
-};
 ?>
