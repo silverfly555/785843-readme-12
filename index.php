@@ -55,6 +55,7 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
+$page_name='readme: популярное';
 include ('C:\OpenServer\domains\localhost\readme\templates\layout.php');
 include ('C:\OpenServer\domains\localhost\readme\templates\main.php');
 ?>
