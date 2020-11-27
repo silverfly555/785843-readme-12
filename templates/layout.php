@@ -110,7 +110,8 @@
         </div>
     </div>
 </header>
-<?php echo $var2 ?>
+<?php include ('templates\main.php');
+?>
 <footer class="footer">
     <div class="footer__wrapper">
         <div class="footer__container container">
