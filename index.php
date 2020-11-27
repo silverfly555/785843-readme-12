@@ -1,7 +1,7 @@
 <?php
 $is_auth=rand(0,1);
 $user_name='Владимир';
-function text ($contents, $quantity=300)
+function text($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
     if ($currentLength > $quantity) {
@@ -17,6 +17,10 @@ function text ($contents, $quantity=300)
     } else {
     return $contents;
     }
+}
+function include_template($page_name, $main, $posts)
+{
+    include ('templates\layout.php');
 }
 $posts = [
 [
@@ -55,7 +59,5 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
-$page_name='readme: популярное';
-$main='templates\main.php';
-include ('templates\layout.php');
+include_template('readme: популярное', 'templates\main.php', $posts);
 ?>

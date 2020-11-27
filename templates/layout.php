@@ -110,7 +110,7 @@
         </div>
     </div>
 </header>
-<?php include $main; ?>
+<?php include 'templates\main.php'; ?>
 <footer class="footer">
     <div class="footer__wrapper">
         <div class="footer__container container">
