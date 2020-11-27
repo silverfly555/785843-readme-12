@@ -56,5 +56,5 @@ $posts = [
 ],
 ];
 $path = 'C:\OpenServer\domains\localhost\readme\templates';
-include ('layout.php');
+include ('C:\OpenServer\domains\localhost\readme\templates\layout.php');
 ?>
