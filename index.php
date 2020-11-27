@@ -55,6 +55,6 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
-$path = 'C:\OpenServer\domains\localhost\readme\templates';
 include ('C:\OpenServer\domains\localhost\readme\templates\layout.php');
+include ('C:\OpenServer\domains\localhost\readme\templates\main.php');
 ?>
