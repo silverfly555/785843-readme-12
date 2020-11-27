@@ -20,7 +20,7 @@ function text($contents, $quantity=300)
 }
 function include_template($page_name, $main, $posts)
 {
-    include ('templates\layout.php');
+    include ($main);
 }
 $posts = [
 [
@@ -59,5 +59,5 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
-include_template('readme: популярное', 'templates\main.php', $posts);
+include_template('readme: популярное', 'templates\layout.php', $posts);
 ?>
