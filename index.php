@@ -56,5 +56,6 @@ $posts = [
 ],
 ];
 $page_name='readme: популярное';
+$main='templates\main.php';
 include ('templates\layout.php');
 ?>
