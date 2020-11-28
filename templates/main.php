@@ -85,6 +85,7 @@
             </div>
         </div>
         <div class="popular__posts">
+          <?php $page_content=include_template('index.php', $posts): ?>
             <?php foreach ($posts as $post): ?>
             <article class="popular__post post">
                 <header class="post__header">

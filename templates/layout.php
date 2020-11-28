@@ -110,7 +110,7 @@
         </div>
     </div>
 </header>
-<?php include_template('readme: популярное', 'templates\main.php', $posts); ?>
+<?php print include_template('main.php', $page_content); ?>
 <footer class="footer">
     <div class="footer__wrapper">
         <div class="footer__container container">
