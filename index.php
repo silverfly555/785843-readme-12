@@ -18,10 +18,6 @@ function text($contents, $quantity=300)
     return $contents;
     }
 }
-function include_template($page_name, $main, $posts)
-{
-    include ($main);
-}
 $posts = [
 [
 'title'=>'Цитата',
@@ -59,5 +55,4 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
-include_template('readme: популярное', 'templates\layout.php', $posts);
 ?>
