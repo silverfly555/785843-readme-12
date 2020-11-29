@@ -18,6 +18,7 @@ function text($contents, $quantity=300)
     return $contents;
     }
 }
+include 'helpers.php';
 $posts = [
 [
 'title'=>'Цитата',
