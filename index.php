@@ -18,7 +18,6 @@ function text($contents, $quantity=300)
     return $contents;
     }
 }
-include 'helpers.php';
 $posts = [
 [
 'title'=>'Цитата',
@@ -56,4 +55,6 @@ $posts = [
 'avatar'=>'userpic.jpg',
 ],
 ];
+include 'helpers.php';
+include 'templates/layout.php';
 ?>
