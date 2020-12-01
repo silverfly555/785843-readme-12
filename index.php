@@ -56,5 +56,6 @@ $posts = [
 ],
 ];
 include 'helpers.php';
-include 'templates/layout.php';
+$content=include_template('templates/main.php', ['posts'=>$posts]);
+print include_template('templates/layout.php', ['content'=>$content]);
 ?>
