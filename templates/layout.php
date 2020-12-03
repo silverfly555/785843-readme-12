@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $page_name ?></title>
+    <title><?php echo htmlspecialchars($page_name) ?></title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page">
@@ -63,7 +63,7 @@
                             <div class="header__profile-name">
                                 <span>
                                     <!--здесь должно быть имя пользователя-->
-                                    <?php echo $user_name; ?>
+                                    <?php echo htmlspecialchars($user_name); ?>
                                 </span>
                                 <svg class="header__link-arrow" width="10" height="6">
                                     <use xlink:href="#icon-arrow-right-ad"></use>
