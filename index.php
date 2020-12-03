@@ -58,5 +58,6 @@ $posts = [
 ];
 include 'helpers.php';
 $content=include_template('main.php', ['posts'=>$posts]);
-print include_template('layout.php', ['content'=>$content]);
+$layout_page=include_template('layout.php', ['content'=>$content, 'user_name'=>$user_name, 'page_name'=>$page_name]);
+print $layout_page;
 ?>

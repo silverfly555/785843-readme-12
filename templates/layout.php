@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $page_name; ?></title>
+    <title><?php echo $page_name ?></title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="page">
@@ -35,7 +35,6 @@
         </form>
         <div class="header__nav-wrapper">
             <!-- здесь должен быть PHP код, который показывает следующий тег по условию -->
-            <?php if ($is_auth): ?>
             <nav class="header__nav">
                 <ul class="header__my-nav">
                     <li class="header__my-page header__my-page--popular">
@@ -106,7 +105,6 @@
                     </li>
                 </ul>
             </nav>
-            <?php endif; ?>
         </div>
     </div>
 </header>
