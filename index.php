@@ -1,6 +1,7 @@
 <?php
 $is_auth=rand(0,1);
 $user_name='Владимир';
+$page_name='readme: популярное';
 function text($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
@@ -56,6 +57,6 @@ $posts = [
 ],
 ];
 include 'helpers.php';
-$content_page=include_template('templates/main.php', ['posts'=>$posts]);
-print include_template('templates/layout.php', ['content'=>$content_page]);
+$content=include_template('templates/main.php', ['posts'=>$posts]);
+print include_template('templates/layout.php', ['content'=>$content]);
 ?>
