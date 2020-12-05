@@ -59,5 +59,5 @@ $posts = [
 include 'helpers.php';
 $content=include_template('main.php', ['posts'=>$posts]);
 $layout_page=include_template('layout.php', ['content'=>$content, 'user_name'=>$user_name, 'page_name'=>$page_name]);
-htmlspecialchars(print $layout_page);
+print $layout_page;
 ?>
