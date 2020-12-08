@@ -2,6 +2,7 @@
 $is_auth=rand(0,1);
 $user_name='Владимир';
 $page_name='readme: популярное';
+date_default_timezone_set('UTC');
 function text($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
