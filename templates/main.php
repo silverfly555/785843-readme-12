@@ -143,7 +143,7 @@
                                 <b class="post__author-name"><!--здесь имя пользоателя-->
                                     <?php echo $post['user']; ?>
                                 </b>
-                                <time class="post__time" datetime="">дата <?php echo date('d/m/g g:i A') ?></time>
+                                <time class="post__time" datetime="">дата <?php echo date('d.m.y G:i:s') ?></time>
                             </div>
                         </a>
                     </div>

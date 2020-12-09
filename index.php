@@ -2,7 +2,7 @@
 $is_auth=rand(0,1);
 $user_name='Владимир';
 $page_name='readme: популярное';
-date_default_timezone_set('UTC');
+date_default_timezone_set('UTC+3');
 function text($contents, $quantity=300)
 {
     $currentLength=strlen($contents);
@@ -23,29 +23,29 @@ function text($contents, $quantity=300)
 function time_print($time)
 {
       //если до текущего времени прошло меньше 60 минут
-      if (strtotime(date('d/m/g g:i A'))-strtotime($time)<60){
-        $result=strtotime(date('d/m/g g:i A')-strtotime($time));
-        return date('d/m/g g:i A',$result).' минут назад';
+      if (strtotime(date('d.m.y G:i:s'))-strtotime($time)<60){
+        $result=strtotime(date('d.m.y G:i:s')-strtotime($time));
+        return date('d.m.y G:i:s',$result).' минут назад';
       }
       //если до текущего времени прошло больше 60 минут, но меньше 24 часов
-      elseif (strtotime(date('d/m/g g:i A'))-strtotime($time)>60 && strtotime(date('d/m/g g:i A')-strtotime($time)<86400)) {
-        $result=strtotime(date('d/m/g g:i A')-strtotime($time));
-        return date('d/m/g g:i A',$result).' часов назад';
+      elseif (strtotime(date('d.m.y G:i:s'))-strtotime($time)>60 && strtotime(date('d.m.y G:i:s')-strtotime($time)<86400)) {
+        $result=strtotime(date('d.m.y G:i:s')-strtotime($time));
+        return date('d.m.y G:i:s',$result).' часов назад';
       }
       //если до текущего времени прошло больше 24 часов, но меньше 7 дней
-      elseif (strtotime(date('d/m/g g:i A'))-strtotime($time)>86400 && strtotime(date('d/m/g g:i A')-strtotime($time)<604800)) {
-        $result=strtotime(date('d/m/g g:i A')-strtotime($time));
-        return date('d/m/g g:i A',$result).' дней назад';
+      elseif (strtotime(date('d.m.y G:i:s'))-strtotime($time)>86400 && strtotime(date('d.m.y G:i:s')-strtotime($time)<604800)) {
+        $result=strtotime(date('d.m.y G:i:s')-strtotime($time));
+        return date('d.m.y G:i:s',$result).' дней назад';
       }
       //если до текущего времени прошло больше 7 дней, но меньше 5 недель
-      elseif (strtotime(date('d/m/g g:i A'))-strtotime($time)>604800 && strtotime(date('d/m/g g:i A')-strtotime($time)<3024000)) {
-        $result=strtotime(date('d/m/g g:i A')-strtotime($time));
-        return date('d/m/g g:i A',$result).' недель назад';
+      elseif (strtotime(date('d.m.y G:i:s'))-strtotime($time)>604800 && strtotime(date('d.m.y G:i:s')-strtotime($time)<3024000)) {
+        $result=strtotime(date('d.m.y G:i:s')-strtotime($time));
+        return date('d.m.y G:i:s',$result).' недель назад';
       }
       //если до текущего времени прошло больше 5 недель
-      elseif (strtotime(date('d/m/g g:i A'))-strtotime($time)>3024000) {
-        $result=strtotime(date('d/m/g g:i A')-strtotime($time));
-        return date('d/m/g g:i A',$result).' месяцев назад';
+      elseif (strtotime(date('d.m.y G:i:s'))-strtotime($time)>3024000) {
+        $result=strtotime(date('d.m.y G:i:s')-strtotime($time));
+        return date('d.m.y G:i:s',$result).' месяцев назад';
       }
 }
 $posts = [
