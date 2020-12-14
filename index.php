@@ -22,30 +22,32 @@ function text($contents, $quantity=300)
 }
 function time_print($time)
 {
+  $st_time=strtotime($time);
+  $un_time=time();
       //если до текущего времени прошло меньше 60 минут
-      if (strtotime(date("Y-m-d H:i:s"))-strtotime($time)<3600){
-        $result=(strtotime(date("Y-m-d H:i:s")-strtotime($time)))/3600;
-        return date('i', $result).get_noun_plural_form($result, ' минута', ' минуты', ' минут').' назад';
+      if ($un_time-$st_time<3600){
+        $result=floor(($un_time-$st_time)/60);
+        return date('i', $result).get_noun_plural_form($result, ' минута', ' минуты', ' минут');
       }
       //если до текущего времени прошло больше 60 минут, но меньше 24 часов
-      elseif (strtotime(date("Y-m-d H:i:s"))-strtotime($time)>3600 && strtotime(date("Y-m-d H:i:s")-strtotime($time)<86400)) {
-        $result=(strtotime(date("Y-m-d H:i:s")-strtotime($time)))/86400;
-        return date('m', $result).get_noun_plural_form($result, ' час', ' часа', ' часов').' назад';
+      if ($un_time-$st_time>3600 && $un_time-$st_time<86400) {
+        $result=floor(($un_time-$st_time)/3600);
+        return date('h', $result).get_noun_plural_form($result, ' час', ' часов', ' часа');
       }
       //если до текущего времени прошло больше 24 часов, но меньше 7 дней
-      elseif (strtotime(date("Y-m-d H:i:s"))-strtotime($time)>86400 && strtotime(date("Y-m-d H:i:s")-strtotime($time)<604800)) {
-        $result=(strtotime(date("Y-m-d H:i:s")-strtotime($time)))/604800;
-        return date('h', $result).get_noun_plural_form($result, ' день', ' дня', ' дней').' назад';
+      if ($un_time-$st_time>86400 && $un_time-$st_time<604800) {
+        $result=floor(($un_time-$st_time)/86400);
+        return date('d', $result).get_noun_plural_form($result, ' день', ' дня', ' дней');
       }
       //если до текущего времени прошло больше 7 дней, но меньше 5 недель
-      elseif (strtotime(date("Y-m-d H:i:s"))-strtotime($time)>604800 && strtotime(date("Y-m-d H:i:s")-strtotime($time)<3024000)) {
-        $result=(strtotime(date("Y-m-d H:i:s")-strtotime($time)))/3024000;
-        return date('d', $result).get_noun_plural_form($result, ' неделя', ' недели', ' недель').' назад';
+      if ($un_time-$st_time>604800 && $un_time-$st_time<3024000) {
+        $result=floor(($un_time-$st_time)/604800);
+        return date('w', $result).get_noun_plural_form($result, ' неделя', ' недели', ' недель');
       }
       //если до текущего времени прошло больше 5 недель
-      elseif (strtotime(date("Y-m-d H:i:s"))-strtotime($time)>3024000) {
-        $result=(strtotime(date("Y-m-d H:i:s")-strtotime($time)))/3024000;
-        return date('d', $result).get_noun_plural_form($result, ' неделя', ' недели', ' недель').' назад';
+      if ($un_time-$st_time>3024000) {
+        $result=floor(($un_time-$st_time))/3024000;
+        return date('m', $result).get_noun_plural_form($result, ' месяц', ' месяца', ' месяцев');
       }
 }
 $posts = [
