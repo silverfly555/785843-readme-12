@@ -85,10 +85,8 @@
             </div>
         </div>
         <div class="popular__posts">
-            <?php $index=0; ?>
-            <?php foreach ($posts as $post): ?>
-              <?php $random_date=generate_random_date($index);
-              $index++; ?>
+            <?php foreach ($posts as $key=>$post): ?>
+              <?php $random_date=generate_random_date($key);?>
             <article class="popular__post post">
                 <header class="post__header">
                     <h2><!--здесь заголовок-->
