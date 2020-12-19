@@ -30,7 +30,7 @@ function time_print($time)
         return $result.' '.get_noun_plural_form($result, 'минуту', 'минуты', 'минут');
       }
       //если до текущего времени прошло больше 60 минут, но меньше 24 часов
-      if ($now-$time>3600 && $now-$time<86400) {
+      if ($now-$time>=3600 && $now-$time<86400) {
         $result=floor(($now-$time)/3600);
         return $result.' '.get_noun_plural_form($result, 'час', 'часа', 'часов');
       }
