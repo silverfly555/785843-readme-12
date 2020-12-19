@@ -22,32 +22,32 @@ function text($contents, $quantity=300)
 }
 function time_print($time)
 {
-  $st_time=strtotime($time);
-  $un_time=time();
+  $time=strtotime($time);
+  $now=time();
       //если до текущего времени прошло меньше 60 минут
-      if ($un_time-$st_time<3600){
-        $result=floor(($un_time-$st_time)/60);
-        return date('i', $result).get_noun_plural_form($result, ' минута', ' минуты', ' минут');
+      if ($now-$time<3600){
+        $result=floor(($now-$time)/60);
+        return $result.' '.get_noun_plural_form($result, 'минуту', 'минуты', 'минут');
       }
       //если до текущего времени прошло больше 60 минут, но меньше 24 часов
-      if ($un_time-$st_time>3600 && $un_time-$st_time<86400) {
-        $result=floor(($un_time-$st_time)/3600);
-        return date('h', $result).get_noun_plural_form($result, ' час', ' часов', ' часа');
+      if ($now-$time>3600 && $now-$time<86400) {
+        $result=floor(($now-$time)/3600);
+        return $result.' '.get_noun_plural_form($result, 'час', 'часа', 'часов');
       }
       //если до текущего времени прошло больше 24 часов, но меньше 7 дней
-      if ($un_time-$st_time>86400 && $un_time-$st_time<604800) {
-        $result=floor(($un_time-$st_time)/86400);
-        return date('d', $result).get_noun_plural_form($result, ' день', ' дня', ' дней');
+      if ($now-$time>=86400 && $now-$time<604800) {
+        $result=floor(($now-$time)/86400);
+        return $result.' '.get_noun_plural_form($result, 'день', 'дня', 'дней');
       }
       //если до текущего времени прошло больше 7 дней, но меньше 5 недель
-      if ($un_time-$st_time>604800 && $un_time-$st_time<3024000) {
-        $result=floor(($un_time-$st_time)/604800);
-        return date('w', $result).get_noun_plural_form($result, ' неделя', ' недели', ' недель');
+      if ($now-$time>=604800 && $now-$time<3024000) {
+        $result=floor(($now-$time)/604800);
+        return $result.' '.get_noun_plural_form($result, 'неделю', 'недели', 'недель');
       }
       //если до текущего времени прошло больше 5 недель
-      if ($un_time-$st_time>3024000) {
-        $result=floor(($un_time-$st_time))/3024000;
-        return date('m', $result).get_noun_plural_form($result, ' месяц', ' месяца', ' месяцев');
+      if ($now-$time>=3024000) {
+        $result=floor(($now-$time)/3024000);
+        return $result.' '.get_noun_plural_form($result, 'месяц', 'месяца', 'месяцев');
       }
 }
 $posts = [
