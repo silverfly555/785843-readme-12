@@ -144,7 +144,7 @@
                                 <b class="post__author-name"><!--здесь имя пользоателя-->
                                     <?php echo $post['user']; ?>
                                 </b>
-                                <time class="post__time" datetime="<?php echo $random_date; ?>" title="<?php echo date('d.m.Y H:i:s', strtotime($random_date)) ?>"><?php echo time_print($random_date).' назад'; ?></time>
+                                <time class="post__time" datetime="<?php echo $random_date; ?>" title="<?php echo date('d.m.Y H:i', strtotime($random_date)) ?>"><?php echo time_print($random_date).' назад'; ?></time>
                             </div>
                         </a>
                     </div>
