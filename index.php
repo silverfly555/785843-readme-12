@@ -45,10 +45,8 @@ function time_print($time)
         return $result.' '.get_noun_plural_form($result, 'неделю', 'недели', 'недель');
       }
       //если до текущего времени прошло больше 5 недель
-      if ($now-$time>=3024000) {
         $result=floor(($now-$time)/3024000);
         return $result.' '.get_noun_plural_form($result, 'месяц', 'месяца', 'месяцев');
-      }
 }
 $posts = [
 [
