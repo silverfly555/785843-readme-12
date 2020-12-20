@@ -85,7 +85,8 @@
             </div>
         </div>
         <div class="popular__posts">
-            <?php foreach ($posts as $post): ?>
+            <?php foreach ($posts as $key=>$post): ?>
+              <?php $random_date=generate_random_date($key); ?>
             <article class="popular__post post">
                 <header class="post__header">
                     <h2><!--здесь заголовок-->
@@ -143,7 +144,7 @@
                                 <b class="post__author-name"><!--здесь имя пользоателя-->
                                     <?php echo $post['user']; ?>
                                 </b>
-                                <time class="post__time" datetime="">дата</time>
+                                <time class="post__time" datetime="<?php echo $random_date; ?>" title="<?php echo date('d.m.Y H:i', strtotime($random_date)) ?>"><?php echo time_print($random_date).' назад'; ?></time>
                             </div>
                         </a>
                     </div>
